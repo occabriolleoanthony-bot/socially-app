@@ -1,13 +1,35 @@
+
 import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native'
 
 interface BtnProps extends TouchableOpacityProps {
-    label: string
+  label: string
 }
 
-export default function Button({label, ...props}: BtnProps) {
+export default function Button({ label, style, ...props }: BtnProps) {
   return (
-    <TouchableOpacity className='h-14 bg-blue-500 items-center justify-center' {...props}>
-        <Text className='text-white uppercase text-xl font-extrabold'>{label}</Text>
+    <TouchableOpacity
+      style={[
+        {
+          height: 56,
+          backgroundColor: '#2563eb',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 12,
+        },
+        style,
+      ]}
+      {...props}
+    >
+      <Text
+        style={{
+          color: 'white',
+          fontSize: 20,
+          fontWeight: '800',
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
+      </Text>
     </TouchableOpacity>
   )
 }
